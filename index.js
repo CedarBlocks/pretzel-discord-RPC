@@ -32,7 +32,7 @@ rpc.on('ready', () => {
         } catch (error) {
             console.error(error);
         };
-    }, 2e3);
+    }, 1);//2e3
 
     console.log('Connected!');
 });
