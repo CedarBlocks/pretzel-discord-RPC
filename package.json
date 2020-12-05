@@ -1,0 +1,14 @@
+{
+  "name": "pretzel-discord-status",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm i && node ."
+  },
+  "author": "CedarBlocks",
+  "license": "ISC",
+  "dependencies": {
+    "discord-rpc": "^3.1.4"
+  }
+}
