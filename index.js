@@ -32,21 +32,32 @@ rpc.on('ready', () => {
         } catch (error) {
             console.error(error);
         };
-    }, 1);//2e3
+    }, 1); //2e3
 
     console.log('Connected!');
 });
 
 function setActivity(song) {
-    rpc.setActivity({
-        details: `🎶 ${song.track.title}`,
-        state: `👤 ${song.track.artistsString}`,
-        startTimestamp:  Date.now(),
-        largeImageKey: 'pretzel',
-        largeImageText: 'Pretzel Rocks',
-        smallImageKey: smallKey(song),
-        smallImageText: smallText(song)
-    });
+    if (song.player.playing === true) {
+        rpc.setActivity({
+            details: `🎶 ${song.track.title}`,
+            state: `👤 ${song.track.artistsString}`,
+            startTimestamp: Date.now(),
+            largeImageKey: 'pretzel',
+            largeImageText: 'Pretzel Rocks',
+            smallImageKey: smallKey(song),
+            smallImageText: smallText(song)
+        });
+    } else {
+        rpc.setActivity({
+            details: `🎶 ${song.track.title}`,
+            state: `👤 ${song.track.artistsString}`,
+            largeImageKey: 'pretzel',
+            largeImageText: 'Pretzel Rocks',
+            smallImageKey: smallKey(song),
+            smallImageText: smallText(song)
+        });
+    }
     console.log(`Now playing: ${song.track.title} - ${song.track.artistsString}`) //https://api.pretzel.tv/playing/twitch/194798600
 };
 
