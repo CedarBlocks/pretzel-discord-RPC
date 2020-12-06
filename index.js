@@ -47,6 +47,7 @@ function setActivity(song) {
         smallImageKey: smallKey(song),
         smallImageText: smallText(song)
     });
+    console.log(`Now playing: ${song.track.title} - ${song.track.artistsString}`) //https://api.pretzel.tv/playing/twitch/194798600
 };
 
 function smallKey(song) {
